@@ -6,14 +6,16 @@ import sys
 #port = "5556"  
 port = "5555"  
   
-# Socket to talk to server  
+# Socket to talk to server 
+print ("Collecting updates from weather server...") 
 context = zmq.Context()  
 socket = context.socket(zmq.SUB)  
-  
-print "Collecting updates from weather server..."  
-socket.connect ("tcp://127.0.0.1:5555")  
-#socket.bind ("tcp://localhost:%s" % port)
-socket.setsockopt(zmq.SUBSCRIBE, "IBEO.LUX4 ")  
+#socket.connect ("tcp://localhost:5555")
+socket.connect ("tcp://localhost:%s" % port)
+
+topicfilter = "IBEO.LUX4 "  
+socket.setsockopt(zmq.SUBSCRIBE, topicfilter)
+#socket.setsockopt_string(zmq.SUBSCRIBE, 'IBEO')  
 
 #for update_nbr in range (100):
 while True:
