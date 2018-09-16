@@ -22,7 +22,7 @@ int main(int argc, char * argv[])
     }
     int iRcvTimeout = 5000;// millsecond
     //设置zmq的接收超时时间为5秒 
-    if(zmq_setsockopt(pSock, ZMQ_SUBSCRIBE, "SHABI", 5) < 0)
+    if(zmq_setsockopt(pSock, ZMQ_SUBSCRIBE, "9999", 4) < 0)
     {
         zmq_close(pSock);
         zmq_ctx_destroy(pCtx);

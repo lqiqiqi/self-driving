@@ -4,7 +4,7 @@
 
 //////////////////
 #include "stdio.h"
-#include <zmq.hpp>
+//#include <zmq.hpp>
 #include <string>
 #include <iostream>
 #include <unistd.h>
@@ -59,7 +59,7 @@ int test(){
         if(count == 0){
             static int i = 0;
             char szMsg[1024] = {0};
-            snprintf(szMsg, sizeof(szMsg), "IBEO.LUX4 hello world : %3d", i++);
+            snprintf(szMsg, sizeof(szMsg), "IBEO.LUX4 1122 : %3d", i++);
             printf("Enter to send...\n");
             if(zmq_send(pSock, szMsg, sizeof(szMsg), 0) < 0)
             {
